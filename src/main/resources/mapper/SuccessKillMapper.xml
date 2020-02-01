@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hou.dao.SuccessKilledDAO">
+    <insert id="insetSuccessKilled" >
+    <!--防止主键冲突，冲突时 返回0，不执行
+       此表采用 seckillid+userphone作为主键-->
+    insert ignore into success_killed(seckill_id,user_phone,state)
+	values(#{seckillId},#{userPhone},0)
+
+    </insert>
+
+    <select id="queryByIdWithSeckill" resultMap="successMap">
+        <!-- 根据id查询successKill并携带秒杀产品对象实体 -->
+        <!-- 可以自由控制SQL -->
+    select * from success_killed sk inner join seckill s on sk.seckill_id=s.seckill_id
+        where sk.seckill_id=#{seckillId} and sk.user_phone=#{userPhone}
+    </select>
+    <resultMap id="successMap" type="SuccessKilled">
+        <id property="seckillId"  column="seckill_id"/>
+        <id property="userPhone" column="user_phone"/>
+        <result  property="state" column="state"/>
+        <result  property="createTime" column="create_time"/>
+        <association property="seckill" javaType="Seckill">
+            <id property="seckillId"  column="seckill_id"/>
+            <result property="nameHou" column="name"/>
+            <result property="number" column="number"/>
+            <result property="startTime" column="start_time"/>
+            <result property="endTime" column="end_time"/>
+        </association>
+<!-- 写什么映射什么，不写不映射，比如不写endTime，就不映射endTime-->
+
+    </resultMap>
+
+
+</mapper>

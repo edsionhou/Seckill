@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.hou.hehe</groupId>
+  <artifactId>Seckill</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>Seckill Maven Webapp</name>
+
+<dependencies>
+  <!-- 补全项目依赖 -->
+  <!-- 1.日志，java日志：slf4j,log4j,logback,common-logging
+      slf4j 是规范/接口
+      日志实现：log4j，logback,common-logging
+      我们使用：slf4j + logback
+      这样mybatis操作就有日志打印了-->
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.12</version>
+  </dependency>
+  <!-- 实现slf4j 接口并整合 -->
+  <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-core</artifactId>
+    <version>1.1.1</version>
+  </dependency>
+  <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.1.1</version>
+  </dependency>
+
+
+  <!-- 数据库相关依赖 -->
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.11</version>
+    <!-- 设置运行时 -->
+    <!--  <scope>runtime</scope>-->
+  </dependency>
+
+  <dependency>
+    <groupId>c3p0</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>0.9.1.2</version>
+  </dependency>
+
+  <!-- DAO 层    mybatis依赖 -->
+  <dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.2.8</version>
+  </dependency>
+  <!-- mybatis自身实现的spring整合依赖 -->
+  <dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>1.3.2</version>
+  </dependency>
+  <!-- 4.2） spring dao层依赖   jdbc 包含了 transaction 事务管理 -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>4.2.4.RELEASE</version>
+  </dependency>
+
+
+  <!--导入servlet-api,我们直接导入了tomcat8.5-->
+  <!--jstl taglib-->
+  <dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+  </dependency>
+  <dependency>
+    <groupId>taglibs</groupId>
+    <artifactId>standard</artifactId>
+    <version>1.1.2</version>
+  </dependency>
+
+  <!-- jkson-->
+  <dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-core</artifactId>
+  <version>2.2.3</version>
+</dependency>
+  <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.2.3</version>
+  </dependency>
+  <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.2.3</version>
+  </dependency>
+
+
+  <!-- 4.1）spring依赖
+  		包含了spring-core
+  		aop beans context web webmvc-->
+
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.2.4.RELEASE</version>
+  </dependency>
+
+  <!-- 4.4） spring test相关依赖 -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>4.2.4.RELEASE</version>
+  </dependency>
+
+
+  <!-- redis客户端：jedis -->
+  <dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>2.7.3</version>
+  </dependency>
+
+  <!-- protostuff序列化依赖 -->
+  <dependency>
+    <groupId>com.dyuproject.protostuff</groupId>
+    <artifactId>protostuff-core</artifactId>
+    <version>1.0.8</version>
+  </dependency>
+  <dependency>
+    <groupId>com.dyuproject.protostuff</groupId>
+    <artifactId>protostuff-runtime</artifactId>
+    <version>1.0.8</version>
+  </dependency>
+
+  <!-- 集合依赖  MapUtils工具-->
+  <dependency>
+    <groupId>commons-collections</groupId>
+    <artifactId>commons-collections</artifactId>
+    <version>3.2</version>
+  </dependency>
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+  </dependency>
+
+
+</dependencies>
+
+
+
+</project>
