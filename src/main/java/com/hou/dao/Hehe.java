@@ -6,5 +6,6 @@ package com.hou.dao;
 public class Hehe {
     public static void main(String[] args) {
         System.out.println("DEV分支");
+        System.out.println("分支添加");
     }
 }
